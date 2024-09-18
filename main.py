@@ -6,6 +6,8 @@ state = {
     "state": consts.RUNNING_STATE,
     "is_window_open": True,
     "car_position": consts.INITIAL_CAR_POSITION,
+    "car_speed": 0,
+    "first_line_position": consts.INITIAL_LINE_POSITION,
     "movement": True
 }
 
@@ -13,6 +15,7 @@ def main():
     pygame.init()
     while state["is_window_open"]:
         handle_user()
+        handle_object_position()
         screen.draw_game(state)
 
 
@@ -41,4 +44,10 @@ def handle_user():
                     elif event.key == pygame.K_DOWN:
                         print("down")
 
+def handle_object_position():
+    i = 1
+    if state["first_line_position"] + i >= consts.LINES_ONLY_SPACE:
+        state["first_line_position"] = -consts.LINES_HEIGHT
+    else:
+        state["first_line_position"] = state["first_line_position"] + i
 main()
