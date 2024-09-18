@@ -1,5 +1,7 @@
 import pygame
+
 import consts
-import screen
 
-
+state = {
+    "state": consts.RUNNING_STATE
+}
