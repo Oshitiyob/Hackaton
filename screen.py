@@ -2,7 +2,7 @@ import pygame
 import consts
 
 screen = pygame.display.set_mode(
-    (SCREEN_WIDTH, SCREEN_HEIGHT))
+    (consts.SCREEN_WIDTH, consts.SCREEN_HEIGHT))
 
 
 def draw_game(state):
