@@ -15,6 +15,7 @@ def main():
     pygame.init()
     while state["is_window_open"]:
         handle_user()
+        handle_object_position()
         screen.draw_game(state)
 
 
