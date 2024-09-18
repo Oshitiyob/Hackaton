@@ -5,7 +5,8 @@ import consts
 state = {
     "state": consts.RUNNING_STATE,
     "is_window_open": True,
-    "car_position": consts.INITIAL_CAR_POSITION
+    "car_position": consts.INITIAL_CAR_POSITION,
+    "movement": True
 }
 
 def main():
@@ -23,19 +24,21 @@ def handle_user():
 
         elif state["state"] == consts.RUNNING_STATE:
             if state["movement"]:
-                if event.key == pygame.K_SPACE:
-                    state["movement"] = False
-                    state["view_mines"] = True
-                    continue
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        state["movement"] = False
+                        continue
 
-                if event.key == pygame.K_LEFT:
-                    print("left")
+                    if event.key == pygame.K_LEFT:
+                        print("left")
 
-                elif event.key == pygame.K_RIGHT:
-                    print("right")
+                    elif event.key == pygame.K_RIGHT:
+                        print("right")
 
-                elif event.key == pygame.K_UP:
-                    print("up")
+                    elif event.key == pygame.K_UP:
+                        print("up")
 
-                elif event.key == pygame.K_DOWN:
-                    print("down")
+                    elif event.key == pygame.K_DOWN:
+                        print("down")
+
+main()
