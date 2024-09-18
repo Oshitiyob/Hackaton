@@ -2,3 +2,9 @@ import pygame
 MAIN_CAR_IMAGE = pygame.image.load("./images/main_car.png")
 RUNNING_STATE = 1
 QUESTION_STATE = 2
+SCREEN_WIDTH = 480
+SCREEN_HEIGHT = 854
+BACKGROUND_COLOR = (51, 204, 51)
+CAR_WIDTH = MAIN_CAR_IMAGE.get_width() / 2
+CAR_HEIGHT = MAIN_CAR_IMAGE.get_height() / 2
+INITIAL_CAR_POSITION = (0, 0)
