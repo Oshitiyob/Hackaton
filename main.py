@@ -7,6 +7,7 @@ state = {
     "is_window_open": True
 }
 
+
 def main():
     pygame.init()
     while state["is_window_open"]:
