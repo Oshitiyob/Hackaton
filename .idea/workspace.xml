@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="484f155b-5bd2-4fb2-b50a-204d3a51cd96" name="Changes" comment="4 questions">
-      <change afterPath="$PROJECT_DIR$/checks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_09_2024_11_07__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_09_2024_11_07__Changes_.xml" afterDir="false" />
+    <list default="true" id="484f155b-5bd2-4fb2-b50a-204d3a51cd96" name="Changes" comment="checks">
+      <change afterPath="$PROJECT_DIR$/colors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checks.py" beforeDir="false" afterPath="$PROJECT_DIR$/checks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/questions.py" beforeDir="false" afterPath="$PROJECT_DIR$/questions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.game.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.questions.executor": "Run",
+    "Python.quiz example.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/jbt/PycharmProjects/Hackaton",
@@ -56,6 +59,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jbt\PycharmProjects\Hackaton" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jbt\PycharmProjects\Hackaton" />
     </key>
@@ -92,7 +98,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1726646840900</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL‎-00003" summary="checks">
+      <option name="closed" value="true" />
+      <created>1726651948672</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL‎-00003" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726651948672</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,6 +124,7 @@
     <MESSAGE value="checking account" />
     <MESSAGE value="screen and consts" />
     <MESSAGE value="4 questions" />
-    <option name="LAST_COMMIT_MESSAGE" value="4 questions" />
+    <MESSAGE value="checks" />
+    <option name="LAST_COMMIT_MESSAGE" value="checks" />
   </component>
 </project>

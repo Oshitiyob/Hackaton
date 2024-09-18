@@ -32,3 +32,8 @@ def questions_system(sign_name):
     question_list = [questions[sign_name], answers_list, answers[sign_name][0]]
     return question_list
 print(questions_system('urban area'))
+
+
+
+def drew_question():
+    pass
