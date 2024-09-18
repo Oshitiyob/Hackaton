@@ -1,15 +1,16 @@
 import pygame
-import screen
-from consts import *
+
+import consts
 
 state = {
-    "state": RUNNING_STATE,
+    "state": consts.RUNNING_STATE,
     "is_window_open": True
 }
 
-
 def main():
-    handle_user()
+    pygame.init()
+    while state["is_window_open"]:
+        handle_user()
 
 
 def handle_user():
@@ -18,7 +19,7 @@ def handle_user():
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
 
-        elif state["state"] == RUNNING_STATE:
+        elif state["state"] == consts.RUNNING_STATE:
             if state["movement"]:
                 if event.key == pygame.K_SPACE:
                     state["movement"] = False
