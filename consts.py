@@ -6,4 +6,3 @@ SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 640
 CAR_WIDTH = 5
 CAR_HEIGHT = 10
-CAR = r"images\car.png"
