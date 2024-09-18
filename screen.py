@@ -30,8 +30,8 @@ def draw_line(line_position_y):
 
 
 def draw_road_lines(first_line_position_y):
+    print(first_line_position_y)
     line_position_y = first_line_position_y
     while line_position_y < consts.SCREEN_HEIGHT:
         draw_line(line_position_y)
         line_position_y += consts.LINES_SPACE
-    print(line_position_y)
