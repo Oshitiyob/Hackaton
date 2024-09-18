@@ -8,6 +8,7 @@ screen = pygame.display.set_mode(
 def draw_game(state):
     screen.fill(consts.BACKGROUND_COLOR)
     draw_player(state["car_position"])
+
     pygame.display.flip()
 
 
