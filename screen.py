@@ -83,5 +83,5 @@ def drew_scoreboard(score):
 
 def drew_car_speed(speed):
     font = pygame.font.SysFont('Pokemon GB.ttf', 30)
-    font = font.render(f"speed: {str(speed * 10)}", True, colors.BLACK)
+    font = font.render(f"speed: {str(round(speed * 4))}", True, colors.BLACK)
     screen.blit(font, [consts.SCREEN_WIDTH - font.get_width() - 10, 10])
