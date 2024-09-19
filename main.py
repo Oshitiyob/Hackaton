@@ -15,7 +15,7 @@ state = {
     "car_position": consts.INITIAL_CAR_POSITION,
     "car_speed": 1,
     "first_line_position": consts.INITIAL_LINE_POSITION,
-    "movement": False,
+    "movement": "",
     "timer": 0,
     "time_counter": 0,
     "first_time": consts.INITIAL_TIME,
@@ -33,8 +33,6 @@ def main():
             state["state"] = consts.SIGN_STATE
             if distance_car_to_sign(state["car_position"][1], state["objects_position"]["stop_sign_position"][1]):
                 state["state"] = consts.QUESTION_STATE
-
-
         handle_user()
         set_time_counter()
         handle_object_position()
@@ -49,9 +47,6 @@ def handle_user():
 
         elif state["state"] == consts.RUNNING_STATE:
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    pass
-
                 if event.key == pygame.K_LEFT:
                     print("left")
 
@@ -59,25 +54,27 @@ def handle_user():
                     print("right")
 
                 if event.key == pygame.K_UP:
-                    state["movement"] = True
+                    state["movement"] = "up"
+                if event.key == pygame.K_DOWN:
+                    state["movement"] = "down"
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
-                    state["movement"] = False
+                    state["movement"] = ""
 
                 if event.key == pygame.K_DOWN:
-                    state["car_speed"] -= 1
-                    print()
+                    state["movement"] = ""
 
-        if state["movement"]:
+        if state["movement"] == "up":
             state["car_speed"] += 1
-            print(state["car_speed"])
+        if state["movement"] == "down" and state["car_speed"] > 0:
+            state["car_speed"] -= 1
 
 
 
 
 def handle_object_position():
-    i = state["car_speed"] / 20
+    i = state["car_speed"] / 10
     if state["state"] == consts.SIGN_STATE:
         state["objects_position"]["stop_sign_position"][1] = state["objects_position"]["stop_sign_position"][1] + i
     if state["state"] != consts.QUESTION_STATE:
