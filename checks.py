@@ -2,10 +2,9 @@ import consts
 
 
 def distance_car_to_sign(car_y, sign_y):
-    if car_y - sign_y <= consts.SCREEN_HEIGHT / 2:
+    if car_y - sign_y <= consts.SCREEN_HEIGHT / 1.5:
         return True
-    else:
-        return False
+    return False
 
 
 def check_answer(state):

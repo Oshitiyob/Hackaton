@@ -6,9 +6,9 @@ import consts
 from checks import distance_car_to_sign, check_answer
 
 timer_event = pygame.event.custom_type()
-pygame.time.set_timer(timer_event, 500)
+pygame.time.set_timer(timer_event, 400)
 state = {
-    "state": consts.RUNNING_STATE,
+    "state": consts.OPENING_SCREEN_STATE,
     "is_window_open": True,
     "car_position": consts.INITIAL_CAR_POSITION,
     "car_speed": 1,
@@ -16,7 +16,7 @@ state = {
     "movement": "",
     "timer": 0,
     "time_counter": 0,
-    "first_time": consts.INITIAL_TIME,
+    "last_time": consts.INITIAL_TIME,
     "times_for_question": consts.TIMES_FOR_QUESTION,
     "objects_position": {
         "sign_position": consts.SIGN_INITIAL_POSITION
@@ -29,16 +29,18 @@ state = {
 def main():
     pygame.init()
     while state["is_window_open"]:
+        print(state["objects_position"]["sign_position"])
         if state["state"] == consts.QUESTION_STATE:
             if state["question_answer"][1]:
                 time.sleep(3)
-                state["state"] = consts.RUNNING_STATE
+                state["state"] = consts.HANDLING_SIGN_STATE
             state["question_answer"][1] = check_answer(state)
         elif math.floor(state["time_counter"]) in consts.TIMES_FOR_QUESTION:
-            if state["state"] != consts.SIGN_STATE and state["state"] != consts.QUESTION_STATE:
+            if state["state"] != consts.SIGN_STATE:
                 state["sign"] = consts.SIGN_LIST[0]
                 consts.SIGN_LIST.remove(state["sign"])
             state["state"] = consts.SIGN_STATE
+        elif state["state"] == consts.SIGN_STATE:
             if distance_car_to_sign(state["car_position"][1], state["objects_position"]["sign_position"][1]):
                 state["state"] = consts.QUESTION_STATE
 
@@ -53,6 +55,10 @@ def handle_user():
 
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
+        elif state["state"] == consts.OPENING_SCREEN_STATE:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    state['state'] = consts.RUNNING_STATE
 
         elif state["state"] != consts.QUESTION_STATE:
             if event.type == pygame.KEYDOWN:
@@ -101,7 +107,7 @@ def handle_user():
 
 def handle_object_position():
     i = state["car_speed"] / 20
-    if state["state"] == consts.SIGN_STATE:
+    if state["state"] == consts.SIGN_STATE or state["state"] == consts.HANDLING_SIGN_STATE:
         state["objects_position"]["sign_position"][1] = state["objects_position"]["sign_position"][1] + i
     if state["state"] != consts.QUESTION_STATE:
         if state["first_line_position"] + i >= consts.LINES_ONLY_SPACE:
@@ -111,10 +117,12 @@ def handle_object_position():
 
 
 def set_time_counter():
-    if state["state"] == consts.RUNNING_STATE:
-        state["time_counter"] = time.time() - state["first_time"]
-    elif state["state"] == consts.SIGN_STATE:
-        state["first_time"] = time.time() - state["first_time"] - state["time_counter"]
+    if state["state"] != consts.QUESTION_STATE:
+        now = time.time()
+        state["time_counter"] += now - state["last_time"]
+        state["last_time"] = now
+    elif state["state"] == consts.QUESTION_STATE:
+        state["last_time"] = time.time()
 
 main()
 

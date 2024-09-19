@@ -11,13 +11,14 @@ def draw_game(state):
     draw_road()
     draw_road_lines(state["first_line_position"])
     draw_player(state["car_position"])
-    if state["state"] == consts.SIGN_STATE:
+    if state['state'] == consts.OPENING_SCREEN_STATE:
+        drew_opening_screen()
+    if state["state"] == consts.SIGN_STATE or state["state"] == consts.HANDLING_SIGN_STATE:
         draw_sign(state["objects_position"]["sign_position"], state["sign"])
+        print("screen")
     if state["state"] == consts.QUESTION_STATE:
-        draw_sign(state["objects_position"]["sign_position"], state["sign"])
         draw_question(state["sign"])
         if state["question_answer"][0] in consts.ANSWERS_OPTIONS:
-            print(state["question_answer"])
             draw_answer(state["question_answer"][0], state["question_answer"][1])
     if state["state"] == consts.HANDLING_SIGN_STATE:
         print("handling state")
@@ -56,7 +57,7 @@ def draw_sign(sign_position, sign):
 def draw_question(sign):
     question_image = consts.QUESTIONS_LIST_IMAGES[sign]
     question_image = pygame.transform.scale(question_image, [consts.QUESTION_WIDTH, consts.QUESTION_HEIGHT])
-    screen.blit(question_image, (0,0))
+    screen.blit(question_image, (0, 0))
 
 def draw_answer(number_to_draw, answer):
     if answer:
@@ -64,6 +65,11 @@ def draw_answer(number_to_draw, answer):
     else:
         answer_image = consts.WRONG_ANSWER_IMAGE
     answer_image = pygame.transform.scale(answer_image, [consts.ANSWERS_WIDTH, consts.ANSWERS_HEIGHT])
-    screen.blit(answer_image, answer_image.get_rect(center=(consts.SCREEN_WIDTH / 2 , consts.INITIAL_POSITION_ANSWER_Y + (number_to_draw - 1) * consts.SPACE_BETWEEN_ANSWERS)))
+    screen.blit(answer_image, answer_image.get_rect(center=(
+    consts.SCREEN_WIDTH / 2, consts.INITIAL_POSITION_ANSWER_Y + (number_to_draw - 1) * consts.SPACE_BETWEEN_ANSWERS)))
 
+
+def drew_opening_screen():
+    opening_screen = pygame.transform.scale(consts.OPENING_SCREEN, [consts.SCREEN_WIDTH, consts.SCREEN_HEIGHT])
+    screen.blit(opening_screen, (0, 0))
 
