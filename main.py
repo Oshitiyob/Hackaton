@@ -68,7 +68,7 @@ def handle_user():
 
                 if event.key == pygame.K_DOWN:
                     state["movement"] = ""
-        if state["movement"] == "up" and state["car_speed"] < 5:
+        if state["movement"] == "up" and state["car_speed"] < 7:
             state["car_speed"] += 0.5
         if state["movement"] == "down" and state["car_speed"] > 0:
             state["car_speed"] -= 0.5
@@ -77,7 +77,7 @@ def handle_user():
 
 
 def handle_object_position():
-    i = state["car_speed"] / 10
+    i = state["car_speed"] / 20
     if state["state"] == consts.SIGN_STATE:
         state["objects_position"]["sign_position"][1] = state["objects_position"]["sign_position"][1] + i
     if state["state"] != consts.QUESTION_STATE:
