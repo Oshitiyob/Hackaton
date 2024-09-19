@@ -1,7 +1,7 @@
 import time
 import pygame
 
-TIMES_FOR_QUESTION = [5, 20, 30, 50]
+TIMES_FOR_QUESTION = [2, 20, 30, 50]
 INITIAL_TIME = time.time()
 RUNNING_STATE = 1
 SIGN_STATE = 2
@@ -19,6 +19,14 @@ SIGN_LIST_RANDOM = SIGN_LIST.copy()
 CROSS_ROAD_IMAGE = pygame.image.load("./images/crossroadsign.png")
 PRIORITY_SIGN_IMAGE = pygame.image.load("./images/prioritysign.png")
 STOP_SIGN_IMAGE = pygame.image.load("./images/stopsign.png")
+RIGHT_ANSWER_IMAGE = pygame.image.load("./images/right_answer.png")
+WRONG_ANSWER_IMAGE = pygame.image.load("./images/wrong_answer.png")
+
+ANSWERS_WIDTH = WRONG_ANSWER_IMAGE.get_width() / 8
+ANSWERS_HEIGHT = WRONG_ANSWER_IMAGE.get_height() / 8
+INITIAL_POSITION_ANSWER_Y = 300
+SPACE_BETWEEN_ANSWERS = SCREEN_WIDTH / 3.5
+
 SIGNS_LIST_IMAGES = {
     "stop": STOP_SIGN_IMAGE,
     "priority":PRIORITY_SIGN_IMAGE,
@@ -40,6 +48,7 @@ QUESTIONS_LIST_IMAGES = {
     "crossroad": CROSS_ROAD_IMAGE,
     "urban area": URBAN_AREA_Q
 }
+
 ANSWERS_OPTIONS = [1, 2, 3, 4]
 ANSWERS = {
     'stop': 3,

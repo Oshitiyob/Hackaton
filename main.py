@@ -29,6 +29,7 @@ state = {
 def main():
     pygame.init()
     while state["is_window_open"]:
+        print(state["car_speed"])
         if math.floor(state["time_counter"]) in consts.TIMES_FOR_QUESTION:
             if state["state"] != consts.SIGN_STATE and state["state"] != consts.QUESTION_STATE:
                 state["sign"] = consts.SIGN_LIST[0]
@@ -87,10 +88,10 @@ def handle_user():
                 state["question_answer"][0] = 4
                 print(state["question_answer"][0])
 
-        if state["movement"] == "up":
+        if state["movement"] == "up" and state["car_speed"] < 6:
             state["car_speed"] += 0.5
 
-        if state["movement"] == "down" and state["car_speed"] > 0 and state["car_speed"] != 0:
+        if state["movement"] == "down" and state["car_speed"] > 0:
             state["car_speed"] -= 0.5
 
 
