@@ -3,7 +3,7 @@ import math
 import pygame
 import screen
 import consts
-from checks import distance_car_to_sign, check_answer, sign_appear
+from checks import distance_car_to_sign, check_answer, sign_appear, random_seconds, random_screening
 
 timer_event = pygame.event.custom_type()
 pygame.time.set_timer(timer_event, 100)
@@ -31,21 +31,22 @@ state = {
 def main():
     pygame.init()
     while state["is_window_open"]:
-        if state["state"] == consts.QUESTION_STATE:
-            if state["question_answer"][1]:
-                state['score'] += 50
-                time.sleep(1.3)
-                state["state"] = consts.HANDLING_SIGN_STATE
-                state["question_answer"] = [0, False]
-            state["question_answer"][1] = check_answer(state)
-        elif math.floor(state["time_counter"]) in consts.TIMES_FOR_QUESTION:
-            if state["state"] != consts.SIGN_STATE:
-                state["sign"] = consts.SIGN_LIST[0]
-                consts.SIGN_LIST.remove(state["sign"])
-            state["state"] = consts.SIGN_STATE
-        elif state["state"] == consts.SIGN_STATE:
-            if distance_car_to_sign(state["car_position"][1], state["objects_position"]["sign_position"][1]):
-                state["state"] = consts.QUESTION_STATE
+        if state["state"] != consts.OPENING_SCREEN_STATE:
+            if state["state"] == consts.QUESTION_STATE:
+                if state["question_answer"][1]:
+                    state['score'] += 50
+                    time.sleep(1.3)
+                    state["state"] = consts.HANDLING_SIGN_STATE
+                    state["question_answer"] = [0, False]
+                state["question_answer"][1] = check_answer(state)
+            elif math.floor(state["time_counter"]) in consts.TIMES_FOR_QUESTION:
+                if state["state"] != consts.SIGN_STATE:
+                    state["sign"] = consts.SIGN_LIST[0]
+                    consts.SIGN_LIST.remove(state["sign"])
+                state["state"] = consts.SIGN_STATE
+            elif state["state"] == consts.SIGN_STATE:
+                if distance_car_to_sign(state["car_position"][1], state["objects_position"]["sign_position"][1]):
+                    state["state"] = consts.QUESTION_STATE
         handle_user()
         set_time_counter()
         handle_object_position()
@@ -59,6 +60,7 @@ def handle_user():
         elif state["state"] == consts.OPENING_SCREEN_STATE:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
+                    print("g")
                     state['state'] = consts.RUNNING_STATE
         elif state["state"] != consts.QUESTION_STATE:
             if event.type == pygame.KEYDOWN:
@@ -124,6 +126,10 @@ def set_time_counter():
     else:
         state["last_time"] = time.time()
 
+
+def generate_tress_positions():
+    seconds = random_seconds(consts.AMOUNT_OF_TREES)
+    x_positions = random_screening(consts.AMOUNT_OF_TREES)
 
 main()
 

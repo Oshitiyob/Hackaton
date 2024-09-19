@@ -19,19 +19,19 @@ def sign_appear(sign_position):
     return False
 
 
-def random_second(number_amount):
-    list = []
+def random_seconds(number_amount):
+    list_ = []
     for i in range(number_amount):
         x = r.randint(1, 100)
-        list.append(x)
+        list_.append(x)
 
-    return list
+    return list_
 
 
 def random_screening(number_amount):
-    list = []
+    list_ = []
     for i in range(number_amount):
         x = r.randint(1, consts.SCREEN_WIDTH)
-        list.append(x)
+        list_.append(x)
 
-    return list
+    return list_
