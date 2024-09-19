@@ -12,3 +12,8 @@ def check_answer(state):
     if state["question_answer"][0] == consts.ANSWERS[state["sign"]]:
         return True
     return False
+
+
+def car_movement():
+    car_position ,nothing = consts.INITIAL_CAR_POSITION
+    car_position -= 10
