@@ -1,7 +1,14 @@
 import time
 import pygame
+# QUESTIONS:
+STOP_Q = pygame.image.load("./images/questions/stop sign.png")
+PRIORITY_Q = pygame.image.load("./images/questions/priorety sign.png")
+CROSS_ROAD_Q = pygame.image.load("./images/questions/crossroad sign.png")
+URBAN_AREA_Q = pygame.image.load("./images/questions/urban area sign.png")
+
+
 PICTURE_FOR_QUESTION = pygame.image.load("./images/picture_for_question.jpg")
-TIMES_FOR_QUESTION = [3, 20, 30, 50]
+TIMES_FOR_QUESTION = [5, 20, 30, 50]
 INITIAL_TIME = time.time()
 RUNNING_STATE = 1
 SIGN_STATE = 2
