@@ -3,6 +3,7 @@ import pygame
 
 TIMES_FOR_QUESTION = [2, 20, 30, 40]
 INITIAL_TIME = time.time()
+OPENING_SCREEN_STATE = 0
 RUNNING_STATE = 1
 SIGN_STATE = 2
 QUESTION_STATE = 3
@@ -21,6 +22,7 @@ PRIORITY_SIGN_IMAGE = pygame.image.load("./images/prioritysign.png")
 STOP_SIGN_IMAGE = pygame.image.load("./images/stopsign.png")
 RIGHT_ANSWER_IMAGE = pygame.image.load("./images/right_answer.png")
 WRONG_ANSWER_IMAGE = pygame.image.load("./images/wrong_answer.png")
+OPENING_SCREEN = pygame.image.load("./images/opening_screen.png")
 
 ANSWERS_WIDTH = WRONG_ANSWER_IMAGE.get_width() / 8
 ANSWERS_HEIGHT = WRONG_ANSWER_IMAGE.get_height() / 8
@@ -61,6 +63,7 @@ ANSWERS = {
 CAR_WIDTH = MAIN_CAR_IMAGE.get_width() / 1.5
 CAR_HEIGHT = MAIN_CAR_IMAGE.get_height() / 1.5
 INITIAL_CAR_POSITION = (5/8 * SCREEN_WIDTH, SCREEN_HEIGHT - CAR_HEIGHT)
+CAR_POSITION_LEFT = ((3/8 * SCREEN_WIDTH), SCREEN_HEIGHT - CAR_HEIGHT)
 ROAD_WIDTH = SCREEN_WIDTH - SCREEN_WIDTH / 2
 ROAD_HEIGHT = SCREEN_HEIGHT
 ROAD_POSITION = (SCREEN_WIDTH / 4, 0)
