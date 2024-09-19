@@ -14,6 +14,7 @@ def draw_game(state):
     draw_road_lines(state["first_line_position"])
     draw_player(state["car_position"])
     drew_scoreboard(state['score'])
+    drew_car_speed(state["car_speed"])
     if state['state'] == consts.OPENING_SCREEN_STATE:
         drew_opening_screen()
     if state["state"] == consts.SIGN_STATE or state["state"] == consts.HANDLING_SIGN_STATE:
@@ -59,6 +60,7 @@ def draw_question(sign):
     question_image = pygame.transform.scale(question_image, [consts.QUESTION_WIDTH, consts.QUESTION_HEIGHT])
     screen.blit(question_image, (0, 0))
 
+
 def draw_answer(number_to_draw, answer):
     if answer:
         answer_image = consts.RIGHT_ANSWER_IMAGE
@@ -75,6 +77,11 @@ def drew_opening_screen():
 
 def drew_scoreboard(score):
     font = pygame.font.SysFont('Pokemon GB.ttf', 30)
-    score = str(score)
-    scoreboard = font.render(f"score: {score}", True, colors.BLACK)
+    scoreboard = font.render(f"score: {str(score)}", True, colors.BLACK)
     screen.blit(scoreboard, [10, 10])
+
+
+def drew_car_speed(speed):
+    font = pygame.font.SysFont('Pokemon GB.ttf', 30)
+    font = font.render(f"speed: {str(speed * 10)}", True, colors.BLACK)
+    screen.blit(font, [consts.SCREEN_WIDTH - font.get_width() - 10, 10])

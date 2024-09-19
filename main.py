@@ -56,7 +56,6 @@ def main():
 
 def handle_user():
     for event in pygame.event.get():
-
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
         elif state["state"] == consts.OPENING_SCREEN_STATE:
