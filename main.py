@@ -29,9 +29,13 @@ state = {
 def main():
     pygame.init()
     while state["is_window_open"]:
+        print(state["state"])
         if math.floor(state["time_counter"]) in consts.TIMES_FOR_QUESTION:
+            if state["state"] != consts.SIGN_STATE:
+                state["sign"] = consts.SIGN_LIST[0]
+                consts.SIGN_LIST.remove(state["sign"])
             state["state"] = consts.SIGN_STATE
-            if distance_car_to_sign(state["car_position"][1], state["objects_position"]["stop_sign_position"][1]):
+            if distance_car_to_sign(state["car_position"][1], state["objects_position"]["sign_position"][1]):
                 state["state"] = consts.QUESTION_STATE
         handle_user()
         set_time_counter()
@@ -88,10 +92,12 @@ def handle_user():
             state["car_speed"] -= 1
 
 
+
+
 def handle_object_position():
     i = state["car_speed"] / 10
     if state["state"] == consts.SIGN_STATE:
-        state["objects_position"]["stop_sign_position"][1] = state["objects_position"]["stop_sign_position"][1] + i
+        state["objects_position"]["sign_position"][1] = state["objects_position"]["sign_position"][1] + i
     if state["state"] != consts.QUESTION_STATE:
         if state["first_line_position"] + i >= consts.LINES_ONLY_SPACE:
             state["first_line_position"] = -consts.LINES_HEIGHT

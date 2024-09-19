@@ -12,10 +12,10 @@ def draw_game(state):
     draw_road_lines(state["first_line_position"])
     draw_player(state["car_position"])
     if state["state"] == consts.SIGN_STATE:
-        draw_sign(state["objects_position"]["stop_sign_position"])
+        draw_sign(state["objects_position"]["sign_position"])
     if state["state"] == consts.QUESTION_STATE:
-        draw_sign(state["objects_position"]["stop_sign_position"])
-        draw_question()
+        draw_sign(state["objects_position"]["sign_position"], state["sign"])
+        draw_question(state["sign"])
     if state["state"] == consts.HANDLING_SIGN_STATE:
         print("handling state")
     pygame.display.flip()
@@ -44,10 +44,13 @@ def draw_road_lines(first_line_position_y):
         line_position_y += consts.LINES_SPACE
 
 
-def draw_sign(sign_position):
-    sign_image = consts.STOP_SIGN_IMAGE
+def draw_sign(sign_position, sign):
+    sign_image = consts.SIGNS_LIST_IMAGES[sign]
     sign_image = pygame.transform.scale(sign_image, [consts.SIGN_WIDTH, consts.SIGN_HEIGHT])
     screen.blit(sign_image, sign_image.get_rect(center=sign_position))
 
 
-
+def draw_question():
+    question_image = consts.
+    question_image = pygame.transform.scale(question_image, [consts.SCREEN_WIDTH, consts.SCREEN_HEIGHT])
+    screen.blit(question_image, (0,0))
