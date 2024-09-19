@@ -97,11 +97,11 @@ def handle_user():
             if event.key == pygame.K_4:
                 state["question_answer"][0] = 4
 
-        if state["movement"] == "up" and state["car_speed"] < 8:
-            state["car_speed"] += 0.5
+        if state["movement"] == "up" and state["car_speed"] < 20:
+            state["car_speed"] += 1
 
         if state["movement"] == "down" and state["car_speed"] > 0:
-            state["car_speed"] -= 0.5
+            state["car_speed"] -= 1
 
 
 
