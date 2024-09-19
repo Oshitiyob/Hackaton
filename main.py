@@ -38,7 +38,9 @@ def main():
             if distance_car_to_sign(state["car_position"][1], state["objects_position"]["sign_position"][1]):
                 state["state"] = consts.QUESTION_STATE
                 state["question_answer"][1] = check_answer(state)
-
+                if state["question_answer"][1]:
+                    time.sleep(3)
+                    state["state"] = consts.RUNNING_STATE
 
         handle_user()
         set_time_counter()
