@@ -51,21 +51,6 @@ def handle_user():
 
         elif state["state"] != consts.QUESTION_STATE:
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_1:
-                    state["question_answer"][0] = 1
-                    print(state["question_answer"][0])
-
-                if event.key == pygame.K_2:
-                    state["question_answer"][0] = 2
-                    print(state["question_answer"][0])
-
-                if event.key == pygame.K_3:
-                    state["question_answer"][0] = 3
-                    print(state["question_answer"][0])
-
-                if event.key == pygame.K_4:
-                    state["question_answer"][0] = 4
-                    print(state["question_answer"][0])
 
                 if event.key == pygame.K_LEFT:
                     print("left")
@@ -82,15 +67,34 @@ def handle_user():
                 if event.key == pygame.K_UP:
                     state["movement"] = ""
 
+                if event.key == pygame.K_UP and event.key == pygame.K_DOWN:
+                    state["car_speed"] -= 1
+                    print(state["car_speed"])
+
                 if event.key == pygame.K_DOWN:
                     state["movement"] = ""
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_1:
+                state["question_answer"][0] = 1
+                print(state["question_answer"][0])
+
+            if event.key == pygame.K_2:
+                state["question_answer"][0] = 2
+                print(state["question_answer"][0])
+
+            if event.key == pygame.K_3:
+                state["question_answer"][0] = 3
+                print(state["question_answer"][0])
+
+            if event.key == pygame.K_4:
+                state["question_answer"][0] = 4
+                print(state["question_answer"][0])
+
         if state["movement"] == "up":
             state["car_speed"] += 1
-        if state["movement"] == "down" and state["car_speed"] > 0 and state["car_speed"] != 0:
-            timer = pygame.event.custom_type()
-            pygame.time.set_timer(timer, 100)
-            state["car_speed"] -= 1
 
+        if state["movement"] == "down" and state["car_speed"] > 0 and state["car_speed"] != 0:
+            state["car_speed"] -= 1
 
 
 
