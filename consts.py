@@ -23,7 +23,7 @@ SIGNS_LIST_IMAGES = [STOP_SIGN_IMAGE, PRIORITY_SIGN_IMAGE, CROSS_ROAD_IMAGE]
 # QUESTIONS:
 STOP_Q = pygame.image.load("./images/questions/stop sign.png")
 PRIORITY_Q = pygame.image.load("./images/questions/priorety sign.png")
-CROSS_ROAD_Q = pygame.image.load("./images/questions/crossroad sign.png")
+CROSS_ROAD_Q = pygame.image.load("./images/questions/crossroud sign.png")
 URBAN_AREA_Q = pygame.image.load("./images/questions/urban area sign.png")
 
 # question image size
