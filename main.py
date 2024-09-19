@@ -22,19 +22,22 @@ state = {
         "sign_position": consts.SIGN_INITIAL_POSITION
     },
     "sign": "",
-    "question_answer": [0, False]
+    "question_answer": [0, False],
+    "score": 0
 }
 
 
 def main():
     pygame.init()
     while state["is_window_open"]:
-        print(state["objects_position"]["sign_position"])
+        print(state["score"])
         if state["state"] == consts.QUESTION_STATE:
-            if state["question_answer"][1]:
-                time.sleep(3)
-                state["state"] = consts.HANDLING_SIGN_STATE
             state["question_answer"][1] = check_answer(state)
+            if state["question_answer"][1]:
+                state['score'] += 50
+                time.sleep(1.3)
+                state["state"] = consts.HANDLING_SIGN_STATE
+
         elif math.floor(state["time_counter"]) in consts.TIMES_FOR_QUESTION:
             if state["state"] != consts.SIGN_STATE:
                 state["sign"] = consts.SIGN_LIST[0]
@@ -43,6 +46,8 @@ def main():
         elif state["state"] == consts.SIGN_STATE:
             if distance_car_to_sign(state["car_position"][1], state["objects_position"]["sign_position"][1]):
                 state["state"] = consts.QUESTION_STATE
+        elif state['state'] == consts.HANDLING_SIGN_STATE:
+            print()
 
         handle_user()
         set_time_counter()
