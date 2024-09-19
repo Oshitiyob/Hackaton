@@ -50,7 +50,4 @@ def draw_sign(sign_position):
     screen.blit(sign_image, sign_image.get_rect(center=sign_position))
 
 
-def draw_question():
-    sign_image = consts.STOP_SIGN_IMAGE
-    sign_image = pygame.transform.scale(sign_image, [consts.SIGN_WIDTH, consts.SIGN_HEIGHT])
-    screen.blit(sign_image, sign_image.get_rect(center=sign_position))
+
