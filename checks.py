@@ -1,5 +1,5 @@
 import consts
-
+import random as r
 
 def distance_car_to_sign(car_y, sign_y):
     if car_y - sign_y <= consts.SCREEN_HEIGHT / 1.5:
@@ -17,3 +17,21 @@ def sign_appear(sign_position):
     if (sign_position - consts.SIGN_HEIGHT / 2) > consts.SCREEN_HEIGHT:
         return True
     return False
+
+
+def random_second(number_amount):
+    list = []
+    for i in range(number_amount):
+        x = r.randint(1, 100)
+        list.append(x)
+
+    return list
+
+
+def random_screening(number_amount):
+    list = []
+    for i in range(number_amount):
+        x = r.randint(1, consts.SCREEN_WIDTH)
+        list.append(x)
+
+    return list
