@@ -1,11 +1,5 @@
 import time
 import pygame
-# QUESTIONS:
-STOP_Q = pygame.image.load("./images/questions/stop sign.png")
-PRIORITY_Q = pygame.image.load("./images/questions/priorety sign.png")
-CROSS_ROAD_Q = pygame.image.load("./images/questions/crossroad sign.png")
-URBAN_AREA_Q = pygame.image.load("./images/questions/urban area sign.png")
-
 
 PICTURE_FOR_QUESTION = pygame.image.load("./images/picture_for_question.jpg")
 TIMES_FOR_QUESTION = [5, 20, 30, 50]
@@ -26,6 +20,12 @@ CROSS_ROAD_IMAGE = pygame.image.load("./images/crossroadsign.png")
 PRIORITY_SIGN_IMAGE = pygame.image.load("./images/prioritysign.png")
 STOP_SIGN_IMAGE = pygame.image.load("./images/stopsign.png")
 SIGNS_LIST_IMAGES = [STOP_SIGN_IMAGE, PRIORITY_SIGN_IMAGE, CROSS_ROAD_IMAGE]
+
+# QUESTIONS:
+STOP_Q = pygame.image.load("./images/questions/stop sign.png")
+PRIORITY_Q = pygame.image.load("./images/questions/priorety sign.png")
+CROSS_ROAD_Q = pygame.image.load("./images/questions/crossroad sign.png")
+URBAN_AREA_Q = pygame.image.load("./images/questions/urban area sign.png")
 
 # question image size
 QUESTION_WIDTH = SCREEN_WIDTH
