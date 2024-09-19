@@ -1,7 +1,7 @@
 import time
 import pygame
 
-TIMES_FOR_QUESTION = [2, 10, 20, 25]
+TIMES_FOR_QUESTION = [5, 10, 20, 25]
 AMOUNT_OF_TREES = 10
 INITIAL_TIME = time.time()
 OPENING_SCREEN_STATE = 0
