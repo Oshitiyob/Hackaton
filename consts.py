@@ -1,7 +1,6 @@
 import time
 import pygame
 
-PICTURE_FOR_QUESTION = pygame.image.load("./images/picture_for_question.jpg")
 TIMES_FOR_QUESTION = [5, 20, 30, 50]
 INITIAL_TIME = time.time()
 RUNNING_STATE = 1
