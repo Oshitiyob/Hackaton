@@ -3,7 +3,7 @@ import math
 import pygame
 import screen
 import consts
-from checks import distance_car_to_sign, check_answer
+from checks import distance_car_to_sign, check_answer, sign_appear
 
 timer_event = pygame.event.custom_type()
 pygame.time.set_timer(timer_event, 400)
@@ -19,7 +19,7 @@ state = {
     "last_time": consts.INITIAL_TIME,
     "times_for_question": consts.TIMES_FOR_QUESTION,
     "objects_position": {
-        "sign_position": consts.SIGN_INITIAL_POSITION
+        "sign_position": consts.SIGN_INITIAL_POSITION.copy()
     },
     "sign": "",
     "question_answer": [0, False]
@@ -29,11 +29,12 @@ state = {
 def main():
     pygame.init()
     while state["is_window_open"]:
-        print(state["objects_position"]["sign_position"])
+        print(state["state"])
         if state["state"] == consts.QUESTION_STATE:
             if state["question_answer"][1]:
                 time.sleep(3)
                 state["state"] = consts.HANDLING_SIGN_STATE
+                state["question_answer"] = [0, False]
             state["question_answer"][1] = check_answer(state)
         elif math.floor(state["time_counter"]) in consts.TIMES_FOR_QUESTION:
             if state["state"] != consts.SIGN_STATE:
@@ -43,7 +44,6 @@ def main():
         elif state["state"] == consts.SIGN_STATE:
             if distance_car_to_sign(state["car_position"][1], state["objects_position"]["sign_position"][1]):
                 state["state"] = consts.QUESTION_STATE
-
         handle_user()
         set_time_counter()
         handle_object_position()
@@ -82,19 +82,15 @@ def handle_user():
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_1:
                 state["question_answer"][0] = 1
-                print(state["question_answer"][0])
 
             if event.key == pygame.K_2:
                 state["question_answer"][0] = 2
-                print(state["question_answer"][0])
 
             if event.key == pygame.K_3:
                 state["question_answer"][0] = 3
-                print(state["question_answer"][0])
 
             if event.key == pygame.K_4:
                 state["question_answer"][0] = 4
-                print(state["question_answer"][0])
 
         if state["movement"] == "up" and state["car_speed"] < 8:
             state["car_speed"] += 0.5
@@ -114,10 +110,12 @@ def handle_object_position():
             state["first_line_position"] = -consts.LINES_HEIGHT
         else:
             state["first_line_position"] = state["first_line_position"] + i
-
+    if sign_appear(state["objects_position"]["sign_position"][1]):
+        state["objects_position"]["sign_position"] = consts.SIGN_INITIAL_POSITION.copy()
+        state["state"] = consts.RUNNING_STATE
 
 def set_time_counter():
-    if state["state"] != consts.QUESTION_STATE and state["state"] != consts.OPENING_SCREEN_STATE:
+    if state["state"] != consts.QUESTION_STATE and state["state"] != consts.HANDLING_SIGN_STATE and state["state"] != consts.HANDLING_SIGN_STATE:
         now = time.time()
         state["time_counter"] += now - state["last_time"]
         state["last_time"] = now

@@ -14,6 +14,6 @@ def check_answer(state):
 
 
 def sign_appear(sign_position):
-    if sign_position > consts.SCREEN_HEIGHT:
+    if (sign_position - consts.SIGN_HEIGHT / 2) > consts.SCREEN_HEIGHT:
         return True
-    return  False
+    return False

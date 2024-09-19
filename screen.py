@@ -15,13 +15,10 @@ def draw_game(state):
         drew_opening_screen()
     if state["state"] == consts.SIGN_STATE or state["state"] == consts.HANDLING_SIGN_STATE:
         draw_sign(state["objects_position"]["sign_position"], state["sign"])
-        print("screen")
     if state["state"] == consts.QUESTION_STATE:
         draw_question(state["sign"])
         if state["question_answer"][0] in consts.ANSWERS_OPTIONS:
             draw_answer(state["question_answer"][0], state["question_answer"][1])
-    if state["state"] == consts.HANDLING_SIGN_STATE:
-        print("handling state")
     pygame.display.flip()
 
 
