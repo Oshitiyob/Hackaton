@@ -124,5 +124,16 @@ def set_time_counter():
     else:
         state["last_time"] = time.time()
 
-
 main()
+
+# play_again = True
+# while play_again:
+#     for event in pygame.event.get():
+#         if event.type == event.KEYDOWN:
+#             if event.key == event.K_y:
+#                 main()
+#
+#             elif event.key == event.K_n:
+#                 play_again = False
+#
+# pygame.quit()
