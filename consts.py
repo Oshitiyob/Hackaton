@@ -1,7 +1,7 @@
 import time
 import pygame
 
-TIMES_FOR_QUESTION = [2, 20, 30, 50]
+TIMES_FOR_QUESTION = [2, 20, 30, 40]
 INITIAL_TIME = time.time()
 RUNNING_STATE = 1
 SIGN_STATE = 2
