@@ -6,9 +6,9 @@ import consts
 from checks import distance_car_to_sign, check_answer, car_movement
 
 timer_event = pygame.event.custom_type()
-pygame.time.set_timer(timer_event, 500)
+pygame.time.set_timer(timer_event, 400)
 state = {
-    "state": consts.RUNNING_STATE,
+    "state": consts.OPENING_SCREEN_STATE,
     "is_window_open": True,
     "car_position": consts.INITIAL_CAR_POSITION,
     "car_speed": 1,
@@ -29,7 +29,6 @@ state = {
 def main():
     pygame.init()
     while state["is_window_open"]:
-        print(state["car_speed"])
         if state["state"] == consts.QUESTION_STATE:
             if state["question_answer"][1]:
                 time.sleep(3)
@@ -54,9 +53,15 @@ def handle_user():
 
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
+        elif state["state"] == consts.OPENING_SCREEN_STATE:
+            print("key")
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    state['state'] = consts.RUNNING_STATE
 
         elif state["state"] != consts.QUESTION_STATE:
             if event.type == pygame.KEYDOWN:
+
                 if event.key == pygame.K_LEFT:
                     car_movement()
                     print("left")
