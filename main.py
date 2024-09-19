@@ -60,7 +60,6 @@ def handle_user():
         elif state["state"] == consts.OPENING_SCREEN_STATE:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    print("g")
                     state['state'] = consts.RUNNING_STATE
         elif state["state"] != consts.QUESTION_STATE:
             if event.type == pygame.KEYDOWN:
