@@ -3,7 +3,7 @@ import math
 import pygame
 import screen
 import consts
-from checks import distance_car_to_sign, check_answer, car_movement
+from checks import distance_car_to_sign, check_answer
 
 timer_event = pygame.event.custom_type()
 pygame.time.set_timer(timer_event, 400)
@@ -63,11 +63,10 @@ def handle_user():
             if event.type == pygame.KEYDOWN:
 
                 if event.key == pygame.K_LEFT:
-                    car_movement()
-                    print("left")
+                    state["car_position"] = consts.CAR_POSITION_LEFT
 
                 if event.key == pygame.K_RIGHT:
-                    print("right")
+                    state["car_position"] = consts.INITIAL_CAR_POSITION
 
                 if event.key == pygame.K_UP:
                     state["movement"] = "up"
@@ -97,7 +96,7 @@ def handle_user():
                 state["question_answer"][0] = 4
                 print(state["question_answer"][0])
 
-        if state["movement"] == "up" and state["car_speed"] < 6:
+        if state["movement"] == "up" and state["car_speed"] < 8:
             state["car_speed"] += 0.5
 
         if state["movement"] == "down" and state["car_speed"] > 0:
