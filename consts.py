@@ -1,7 +1,16 @@
+import time
+
 import pygame
 MAIN_CAR_IMAGE = pygame.image.load("./images/main_car.png")
+CROSS_ROAD_IMAGE = pygame.image.load("./images/crossroadsign.png")
+PRIORITY_SIGN_IMAGE = pygame.image.load("./images/prioritysign.png")
+STOP_SIGN_IMAGE = pygame.image.load("./images/stopsign.png")
+TIMES_FOR_QUESTION = [5, 20, 30, 50]
+INITIAL_TIME = time.time()
 RUNNING_STATE = 1
-QUESTION_STATE = 2
+SIGN_STATE = 2
+QUESTION_STATE = 3
+HANDLING_SIGN_STATE = 4
 SCREEN_WIDTH = 480
 SCREEN_HEIGHT = 854
 BACKGROUND_COLOR = (51, 204, 51)
@@ -19,3 +28,8 @@ LINES_ONLY_SPACE = 30
 LINES_SPACE = LINES_HEIGHT + LINES_ONLY_SPACE
 LINES_POSITION_X = SCREEN_WIDTH / 2 - LINES_WIDTH / 2
 ROAD_COLOR = (95, 95, 95)
+
+# signs
+SIGN_WIDTH = STOP_SIGN_IMAGE.get_width() / 3
+SIGN_HEIGHT = STOP_SIGN_IMAGE.get_height() / 3
+SIGN_INITIAL_POSITION = [7/8 * SCREEN_WIDTH, -SIGN_HEIGHT]
