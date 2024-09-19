@@ -19,7 +19,8 @@ state = {
     "last_time": consts.INITIAL_TIME,
     "times_for_question": consts.TIMES_FOR_QUESTION,
     "objects_position": {
-        "sign_position": consts.SIGN_INITIAL_POSITION.copy()
+        "sign_position": consts.SIGN_INITIAL_POSITION.copy(),
+        "trees_positions": []
     },
     "sign": "",
     "question_answer": [0, False],

@@ -11,7 +11,9 @@ HANDLING_SIGN_STATE = 4
 ANSWER_STATE = 5
 SCREEN_WIDTH = 480
 SCREEN_HEIGHT = 854
-BACKGROUND_COLOR = (51, 204, 51)
+BACKGROUND_COLOR = (38,139,7)
+
+
 
 # images
 MAIN_CAR_IMAGE = pygame.image.load("./images/main_car.png")
