@@ -117,11 +117,11 @@ def handle_object_position():
 
 
 def set_time_counter():
-    if state["state"] != consts.QUESTION_STATE:
+    if state["state"] != consts.QUESTION_STATE and state["state"] != consts.OPENING_SCREEN_STATE:
         now = time.time()
         state["time_counter"] += now - state["last_time"]
         state["last_time"] = now
-    elif state["state"] == consts.QUESTION_STATE:
+    else:
         state["last_time"] = time.time()
 
 
