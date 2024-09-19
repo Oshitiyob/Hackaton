@@ -12,3 +12,9 @@ def check_answer(state):
     if state["question_answer"][0] == consts.ANSWERS[state["sign"]]:
         return True
     return False
+
+
+def sign_appear(sign_position):
+    if sign_position > consts.SCREEN_HEIGHT:
+        return True
+    return  False

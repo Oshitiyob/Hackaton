@@ -116,5 +116,16 @@ def set_time_counter():
     elif state["state"] == consts.SIGN_STATE:
         state["first_time"] = time.time() - state["first_time"] - state["time_counter"]
 
-
 main()
+
+# play_again = True
+# while play_again:
+#     for event in pygame.event.get():
+#         if event.type == event.KEYDOWN:
+#             if event.key == event.K_y:
+#                 main()
+#
+#             elif event.key == event.K_n:
+#                 play_again = False
+#
+# pygame.quit()
