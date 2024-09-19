@@ -1,8 +1,6 @@
 import time
 import math
 import pygame
-
-import car_functions
 import screen
 import consts
 from checks import distance_car_to_sign
@@ -22,15 +20,19 @@ state = {
     "times_for_question": consts.TIMES_FOR_QUESTION,
     "objects_position": {
         "stop_sign_position": consts.SIGN_INITIAL_POSITION
-    }
+    },
+    "sign": "",
+    "question_answer": [0, False]
 }
 
 
 def main():
     pygame.init()
     while state["is_window_open"]:
+        print(state["state"])
         if math.floor(state["time_counter"]) in consts.TIMES_FOR_QUESTION:
             state["state"] = consts.SIGN_STATE
+            state[""]
             if distance_car_to_sign(state["car_position"][1], state["objects_position"]["stop_sign_position"][1]):
                 state["state"] = consts.QUESTION_STATE
         handle_user()
@@ -45,7 +47,7 @@ def handle_user():
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
 
-        elif state["state"] == consts.RUNNING_STATE:
+        elif state["state"] != consts.QUESTION_STATE:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     print("left")
@@ -64,7 +66,6 @@ def handle_user():
 
                 if event.key == pygame.K_DOWN:
                     state["movement"] = ""
-
         if state["movement"] == "up":
             state["car_speed"] += 1
         if state["movement"] == "down" and state["car_speed"] > 0:
