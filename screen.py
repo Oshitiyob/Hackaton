@@ -1,4 +1,6 @@
 import pygame
+
+import colors
 import consts
 from checks import distance_car_to_sign
 
@@ -11,6 +13,7 @@ def draw_game(state):
     draw_road()
     draw_road_lines(state["first_line_position"])
     draw_player(state["car_position"])
+    drew_scoreboard(state['score'])
     if state['state'] == consts.OPENING_SCREEN_STATE:
         drew_opening_screen()
     if state["state"] == consts.SIGN_STATE or state["state"] == consts.HANDLING_SIGN_STATE:
@@ -70,3 +73,8 @@ def drew_opening_screen():
     opening_screen = pygame.transform.scale(consts.OPENING_SCREEN, [consts.SCREEN_WIDTH, consts.SCREEN_HEIGHT])
     screen.blit(opening_screen, (0, 0))
 
+def drew_scoreboard(score):
+    font = pygame.font.SysFont('Pokemon GB.ttf', 30)
+    score = str(score)
+    scoreboard = font.render(f"score: {score}", True, colors.BLACK)
+    screen.blit(scoreboard, [10, 10])
