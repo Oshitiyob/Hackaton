@@ -16,6 +16,8 @@ def draw_game(state):
     if state["state"] == consts.QUESTION_STATE:
         draw_sign(state["objects_position"]["sign_position"], state["sign"])
         draw_question(state["sign"])
+        if state["question_answer"][0] in consts.ANSWERS_OPTIONS
+            handle_answer()
     if state["state"] == consts.HANDLING_SIGN_STATE:
         print("handling state")
     pygame.display.flip()
@@ -54,3 +56,7 @@ def draw_question(sign):
     question_image = consts.QUESTIONS_LIST_IMAGES[sign]
     question_image = pygame.transform.scale(question_image, [consts.QUESTION_WIDTH, consts.QUESTION_HEIGHT])
     screen.blit(question_image, (0,0))
+
+
+def handle_answer():
+    print()

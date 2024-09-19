@@ -23,7 +23,6 @@ SIGNS_LIST_IMAGES = {
     "priority":PRIORITY_SIGN_IMAGE,
     "crossroad": CROSS_ROAD_IMAGE
 }
-
 # QUESTIONS:
 STOP_Q = pygame.image.load("./images/questions/stop sign.png")
 PRIORITY_Q = pygame.image.load("./images/questions/priorety sign.png")
@@ -40,6 +39,7 @@ QUESTIONS_LIST_IMAGES = {
     "crossroad": CROSS_ROAD_IMAGE,
     "urban area": URBAN_AREA_Q
 }
+ANSWERS_OPTIONS = [1, 2, 3, 4]
 ANSWERS = {
     'stop': 3,
     'priority': 4,
