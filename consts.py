@@ -21,6 +21,7 @@ PRIORITY_SIGN_IMAGE = pygame.image.load("./images/prioritysign.png")
 STOP_SIGN_IMAGE = pygame.image.load("./images/stopsign.png")
 RIGHT_ANSWER_IMAGE = pygame.image.load("./images/right_answer.png")
 WRONG_ANSWER_IMAGE = pygame.image.load("./images/wrong_answer.png")
+OPENING_SCREEN = pygame.image.load("./images/opening_screen.png")
 
 ANSWERS_WIDTH = WRONG_ANSWER_IMAGE.get_width() / 8
 ANSWERS_HEIGHT = WRONG_ANSWER_IMAGE.get_height() / 8
