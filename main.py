@@ -13,7 +13,7 @@ state = {
     "state": consts.RUNNING_STATE,
     "is_window_open": True,
     "car_position": consts.INITIAL_CAR_POSITION,
-    "car_speed": 3,
+    "car_speed": 1,
     "first_line_position": consts.INITIAL_LINE_POSITION,
     "movement": False,
     "timer": 0,
@@ -77,14 +77,7 @@ def handle_user():
 
 
 def handle_object_position():
-    state["car_speed"] = 1
-    if state["first_line_position"] + state["car_speed"] >= consts.LINES_ONLY_SPACE:
-        state["first_line_position"] = -consts.LINES_HEIGHT
-    else:
-        state["first_line_position"] = state["first_line_position"] + state["car_speed"]
-
-
-    i = state["car_speed"] / 10
+    i = state["car_speed"] / 20
     if state["state"] == consts.SIGN_STATE:
         state["objects_position"]["stop_sign_position"][1] = state["objects_position"]["stop_sign_position"][1] + i
     if state["state"] != consts.QUESTION_STATE:
