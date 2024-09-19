@@ -17,6 +17,7 @@ def draw_game(state):
         draw_sign(state["objects_position"]["sign_position"], state["sign"])
         draw_question(state["sign"])
         if state["question_answer"][0] in consts.ANSWERS_OPTIONS:
+            print(state["question_answer"])
             draw_answer(state["question_answer"][0], state["question_answer"][1])
     if state["state"] == consts.HANDLING_SIGN_STATE:
         print("handling state")

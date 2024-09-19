@@ -30,17 +30,18 @@ def main():
     pygame.init()
     while state["is_window_open"]:
         print(state["car_speed"])
-        if math.floor(state["time_counter"]) in consts.TIMES_FOR_QUESTION:
+        if state["state"] == consts.QUESTION_STATE:
+            if state["question_answer"][1]:
+                time.sleep(3)
+                state["state"] = consts.RUNNING_STATE
+            state["question_answer"][1] = check_answer(state)
+        elif math.floor(state["time_counter"]) in consts.TIMES_FOR_QUESTION:
             if state["state"] != consts.SIGN_STATE and state["state"] != consts.QUESTION_STATE:
                 state["sign"] = consts.SIGN_LIST[0]
                 consts.SIGN_LIST.remove(state["sign"])
             state["state"] = consts.SIGN_STATE
             if distance_car_to_sign(state["car_position"][1], state["objects_position"]["sign_position"][1]):
                 state["state"] = consts.QUESTION_STATE
-                state["question_answer"][1] = check_answer(state)
-                if state["question_answer"][1]:
-                    time.sleep(3)
-                    state["state"] = consts.RUNNING_STATE
 
         handle_user()
         set_time_counter()
