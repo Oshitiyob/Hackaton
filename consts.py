@@ -13,7 +13,14 @@ CROSS_ROAD_Q = pygame.image.load("./images/questions/crossroad sign.png")
 URBAN_AREA_Q = pygame.image.load("./images/questions/urban area sign.png")
 
 
-PICTURE_FOR_QUESTION = pygame.image.load("./images/picture_for_question.jpg")
+ANSWERS = {
+    'stop': 3,
+    'priority': 4,
+    'crossroad': 3,
+    'urban area': 1
+}
+
+
 TIMES_FOR_QUESTION = [5, 20, 30, 50]
 INITIAL_TIME = time.time()
 RUNNING_STATE = 1
