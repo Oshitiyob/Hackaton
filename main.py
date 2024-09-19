@@ -85,7 +85,6 @@ def handle_user():
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_1:
                 state["question_answer"][0] = 1
-                print(state["question_answer"][0])
 
             if event.key == pygame.K_2:
                 state["question_answer"][0] = 2
