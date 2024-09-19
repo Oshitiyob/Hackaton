@@ -1,10 +1,12 @@
 import time
-
 import pygame
+# images
 MAIN_CAR_IMAGE = pygame.image.load("./images/main_car.png")
 CROSS_ROAD_IMAGE = pygame.image.load("./images/crossroadsign.png")
 PRIORITY_SIGN_IMAGE = pygame.image.load("./images/prioritysign.png")
 STOP_SIGN_IMAGE = pygame.image.load("./images/stopsign.png")
+
+PICTURE_FOR_QUESTION = pygame.image.load("./images/picture_for_question.jpg")
 TIMES_FOR_QUESTION = [5, 20, 30, 50]
 INITIAL_TIME = time.time()
 RUNNING_STATE = 1
