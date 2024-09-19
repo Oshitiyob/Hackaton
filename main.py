@@ -54,7 +54,6 @@ def handle_user():
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
         elif state["state"] == consts.OPENING_SCREEN_STATE:
-            print("key")
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     state['state'] = consts.RUNNING_STATE
