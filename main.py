@@ -3,7 +3,7 @@ import math
 import pygame
 import screen
 import consts
-from checks import distance_car_to_sign
+from checks import distance_car_to_sign, check_answer
 
 timer_event = pygame.event.custom_type()
 pygame.time.set_timer(timer_event, 500)
@@ -36,6 +36,9 @@ def main():
             state["state"] = consts.SIGN_STATE
             if distance_car_to_sign(state["car_position"][1], state["objects_position"]["sign_position"][1]):
                 state["state"] = consts.QUESTION_STATE
+                state["question_answer"][1] = check_answer(state)
+
+
         handle_user()
         set_time_counter()
         handle_object_position()
