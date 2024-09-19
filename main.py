@@ -19,7 +19,7 @@ state = {
     "first_time": consts.INITIAL_TIME,
     "times_for_question": consts.TIMES_FOR_QUESTION,
     "objects_position": {
-        "stop_sign_position": consts.SIGN_INITIAL_POSITION
+        "sign_position": consts.SIGN_INITIAL_POSITION
     },
     "sign": "",
     "question_answer": [0, False]
@@ -29,7 +29,6 @@ state = {
 def main():
     pygame.init()
     while state["is_window_open"]:
-        print(state["state"])
         if math.floor(state["time_counter"]) in consts.TIMES_FOR_QUESTION:
             if state["state"] != consts.SIGN_STATE:
                 state["sign"] = consts.SIGN_LIST[0]
@@ -51,7 +50,6 @@ def handle_user():
 
         elif state["state"] != consts.QUESTION_STATE:
             if event.type == pygame.KEYDOWN:
-
                 if event.key == pygame.K_LEFT:
                     print("left")
 
@@ -66,10 +64,6 @@ def handle_user():
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
                     state["movement"] = ""
-
-                if event.key == pygame.K_UP and event.key == pygame.K_DOWN:
-                    state["car_speed"] -= 1
-                    print(state["car_speed"])
 
                 if event.key == pygame.K_DOWN:
                     state["movement"] = ""
@@ -98,8 +92,9 @@ def handle_user():
 
 
 
+
 def handle_object_position():
-    i = state["car_speed"] / 10
+    i = state["car_speed"] / 20
     if state["state"] == consts.SIGN_STATE:
         state["objects_position"]["sign_position"][1] = state["objects_position"]["sign_position"][1] + i
     if state["state"] != consts.QUESTION_STATE:
